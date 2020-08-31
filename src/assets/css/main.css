@@ -1,0 +1,186 @@
+@import"https://fonts.googleapis.com/css?family=Raleway:300,400,500,,600,700,900";
+@import"https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700";
+@import"https://fonts.googleapis.com/css?family=Montserrat:600,600i,700,700i,800,800i,900,900i|Poppins:300,300i,400,400i,500,500i,600,600i,700";
+
+
+* {
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 15px;
+    font-weight: 300;
+    height: 100%;
+    font-family: Poppins, Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.main-clr {
+    color: #ee1f33
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #222;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s;
+    color: inherit;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+*:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+a:active * {
+    background-color: #fff;
+}
+
+i {
+    padding: 0 5px;
+    /* transition: .3s; */
+}
+
+i:hover {
+    color: #ee1f33;
+}
+
+button:focus {
+    outline: none;
+}
+
+.active {
+    color: #ee1f33;
+    background-color: #fff
+}
+
+.btn:hover {
+    color: #fff;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+p {
+    line-height: 26px;
+    font-size: 15px;
+}
+
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.my-btn,
+.my-btn2 {
+    border-radius: 40px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.my-btn {
+    background-color: #ee1f33;
+    color: #fff;
+}
+
+.my-btn2 {
+    background-color: #fff;
+    color: #ee1f33;
+    border: 1px solid #ee1f33
+}
+
+.my-btn::before,
+.my-btn2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #d21f30;
+    transition: 0.5s;
+    top: 0;
+    border-radius: 0 10% 10% 0;
+    z-index: -1;
+}
+
+.my-btn:hover::before,
+.my-btn2:hover::before {
+    width: 120%;
+}
+
+hr {
+    border-top: 3px solid rgba(0, 0, 0, 0.08);
+}
+
+.container {
+    margin: 0 auto;
+    position: relative;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+@media(max-width: 1400px) {
+    .container {
+        max-width: 1050px;
+    }
+}
+
+@media(max-width: 768px) {
+    body {
+        font-size: 14px !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        line-height: 1
+    }
+
+    .my-btn {
+        font-size: 13px;
+        padding: 10px 19px;
+    }
+}
+
+@media(max-width: 576px) {
+    body {
+        font-size: 13px !important;
+    }
+}
