@@ -1,4 +1,5 @@
 import EventService from "@/services/EventService.js";
+import axios from "axios";
 
 export const namespaced = true;
 
@@ -6,7 +7,9 @@ export const state = {
   events: [],
   event: {},
   eventsTotal: 0,
-  perPage: 3
+  perPage: 3,
+  datas: [],
+  league: "liga"
 };
 
 export const mutations = {
@@ -18,6 +21,9 @@ export const mutations = {
   },
   SET_EVENT(state, event) {
     state.event = event;
+  },
+  SET_API(state, datas) {
+    state.datas = datas;
   }
 };
 
@@ -64,6 +70,30 @@ export const actions = {
       .then((response) => {
         commit("SET_EVENT", response.data, event);
         return event, response.data;
+      });
+  },
+  getData({ commit, dispatch, state }) {
+    axios({
+      method: "GET",
+      url: "https://football98.p.rapidapi.com/" + state.league + "/squads",
+      headers: {
+        "content-type": "application/octet-stream",
+        "x-rapidapi-host": "football98.p.rapidapi.com",
+        "x-rapidapi-key": "9670f2d09dmsh124f86b13584964p11ac44jsnc3e1702551f9",
+        useQueryString: true
+      },
+      timeout: 6000
+    })
+      .then((response) => {
+        commit("SET_API", response.data);
+      })
+      .catch(() => {
+        const notification = {
+          type: "error",
+          message:
+            "There was a problem fetching the events, please refresh the page"
+        };
+        dispatch("notification/add", notification, { root: true }); //go to $store => notifications => run 'add' action
       });
   }
 };

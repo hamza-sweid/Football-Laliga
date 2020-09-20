@@ -1,20 +1,11 @@
 <template>
   <div>
-    <h1>Events for {{ user.user.name }}</h1>
-    <event-card v-for="event in event.events" :key="event.id" :event="event" />
-    <template v-if="page != 1">
-      <router-link
-        :to="{ name: 'event-list', query: { page: page - 1 } }"
-        rel="prev"
-        >Prev Page</router-link
-      >
-      |
-    </template>
-    <template>
-      <router-link :to="{ name: 'event-list', query: { page: page + 1 } }"
-        >Next Page</router-link
-      >
-    </template>
+    <h1>Serie A Standing</h1>
+    <event-card
+      v-for="data in event.datas"
+      :key="data.squad_name"
+      :data="data"
+    />
   </div>
 </template>
 
@@ -22,25 +13,31 @@
 import EventCard from "@/components/EventCard.vue";
 import { mapState } from "vuex";
 import store from "@/store/index";
+// import NProgress from "nprogress";
+// import axios from "axios";
 
 function getPageEvents(routeTo, next) {
-  const currentPage = parseInt(routeTo.query.page) || 1;
   store
-    .dispatch("event/fetchEvents", {
-      page: currentPage
-    })
+    .dispatch("event/getData")
+
     .then(() => {
-      routeTo.params.page = currentPage; // send the 'currnetPage' into the component through a param called page
       next(); // continue on to create and render our component
-    });
+    })
+    .catch((error) => {
+      if (error.response && error.response.status == 404) {
+        next({ name: "404", params: { resource: "event" } });
+      } else {
+        next({ name: "network-issue" });
+      }
+    }); //this param when entering any 'not exist event'
 }
 
 export default {
   props: {
-    page: {
-      type: Number,
-      required: true
-    }
+    // league: {
+    //   type: String,
+    //   required: true
+    // }
   },
   components: {
     EventCard
@@ -52,9 +49,6 @@ export default {
     getPageEvents(routeTo, next);
   },
   computed: {
-    hasNextPage() {
-      return this.event.eventsTotal > this.page * this.perPage;
-    },
     ...mapState(["event", "user"])
   }
 };

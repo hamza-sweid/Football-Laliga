@@ -37,5 +37,6 @@ export default {
 <style scoped>
 .notification-bar {
   margin: 1em 0 1em;
+  color: red
 }
 </style>
