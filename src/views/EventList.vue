@@ -1,6 +1,14 @@
 <template>
   <div>
-    <h1>Serie A Standing</h1>
+    <h1 class="mt-3 px-2">Serie A Standing</h1>
+    <div class="mx-sm-0  standing"></div>
+    <div class="row">
+      <span class="col-2 even">POSITON</span><span class="col-3 even">TEAM</span
+      ><span class="col-1 even">PTS</span><span class="col-1 even">PLD</span
+      ><span class="col-1 even">W</span><span class="col-1 even">D</span
+      ><span class="col-1 even">L</span><span class="col-1 even">GF</span
+      ><span class="col-1 even">GA</span>
+    </div>
     <event-card
       v-for="data in event.datas"
       :key="data.squad_name"
@@ -53,3 +61,27 @@ export default {
   }
 };
 </script>
+
+<style scoope>
+h1 {
+  background-color: #92daec;
+  font-size: 32px;
+  line-height: 40px;
+}
+.row span {
+  height: 55px;
+  line-height: 50px;
+  font-weight: 400;
+  font-size: 0.85em;
+  letter-spacing: 2px;
+}
+.even {
+  background-color: #25282a;
+  color: white;
+}
+
+.odd {
+  background-color: #254150;
+  color: white;
+}
+</style>

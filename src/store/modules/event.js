@@ -82,7 +82,7 @@ export const actions = {
         "x-rapidapi-key": "9670f2d09dmsh124f86b13584964p11ac44jsnc3e1702551f9",
         useQueryString: true
       },
-      timeout: 6000
+      // timeout: 6000
     })
       .then((response) => {
         commit("SET_API", response.data);

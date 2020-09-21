@@ -1,26 +1,70 @@
 <template>
-  <router-link
-    class="event-link"
-    :to="{ name: 'event-show', params: { id: data.squad_name } }"
-  >
-    <div class="event-card -shadow">
-      <span class="eyebrow"
-        >@{{ data.squad_name }} on {{ data.squad_name }}</span
-      >
-      <h4 class="title">{{ data.squad_name | dateFilter }}</h4>
-      <base-icon>{{ data.squad_name }} attending</base-icon>
-    </div>
-  </router-link>
+  <div class="row">
+    <span class="col-2" :class="isEven ? 'even' : 'odd'">{{
+      data.squad_position
+    }}</span
+    ><span class="col-3" :class="isEven ? 'even' : 'odd'"
+      ><img :src="getImgUrl()" />{{ data.squad_name }}</span
+    ><span class="col-1" :class="isEven ? 'even' : 'odd'">{{
+      data.squad_points
+    }}</span
+    ><span class="col-1" :class="isEven ? 'even' : 'odd'">{{
+      data.squad_played
+    }}</span
+    ><span class="col-1" :class="isEven ? 'even' : 'odd'">{{
+      data.squad_winned
+    }}</span
+    ><span class="col-1" :class="isEven ? 'even' : 'odd'">{{
+      data.squad_tie
+    }}</span
+    ><span class="col-1" :class="isEven ? 'even' : 'odd'">{{
+      data.squad_loosed
+    }}</span
+    ><span class="col-1" :class="isEven ? 'even' : 'odd'">{{
+      data.squad_position
+    }}</span
+    ><span class="col-1" :class="isEven ? 'even' : 'odd'">{{
+      data.squad_position
+    }}</span>
+  </div>
 </template>
 
 <script>
 export default {
   name: "EventCard",
-  props: ["data"]
+  props: ["data"],
+  data() {
+    return {
+      isEven: this.data.squad_position % 2 == 0
+    };
+  },
+  methods: {
+    getImgUrl() {
+      return require("@/assets/images/laliga/" + this.data.squad_name + ".png");
+    }
+  },
+  computed: {}
 };
 </script>
 
 <style scoped>
+.row span {
+  height: 55px;
+  line-height: 50px;
+  font-weight: 400;
+  font-size: 0.85em;
+  letter-spacing: 2px;
+}
+.even {
+  background-color: #25282a;
+  color: white;
+}
+
+.odd {
+  background-color: #254150;
+  color: white;
+}
+
 .event-card {
   padding: 20px;
   margin-bottom: 24px;
@@ -39,5 +83,16 @@ export default {
   color: black;
   text-decoration: none;
   font-weight: 100;
+}
+
+img {
+  width: 15%;
+}
+
+@media (max-width: 992px) {
+  .row span {
+    font-weight: 400;
+    font-size: 0.7em;
+  }
 }
 </style>

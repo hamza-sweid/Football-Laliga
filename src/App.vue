@@ -35,7 +35,7 @@ body {
 }
 #app {
   box-sizing: border-box;
-  width: 500px;
+  width: 1200px;
   padding: 0 20px 20px;
   margin: 0 auto;
 }
@@ -60,12 +60,13 @@ h4,
 h5,
 h6 {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   font-family: "Montserrat", sans-serif;
-  margin: 20px 0;
+  margin: 20px 0 0 0;
+  margin-bottom: 0 !important;
 }
 h1 {
-  font-size: 50px;
+  font-size: 37px !important;
   font-weight: 700;
 }
 h2 {
@@ -249,5 +250,8 @@ select::ms-expand {
 .nav .nav-item .router-link-exact-active {
   color: #39b982 !important;
   border-bottom: solid 2px #39b982;
+}
+.row {
+  margin: 0;
 }
 </style>
