@@ -1,54 +1,63 @@
 <template>
-  <div>
-    <div id="item-v" class=" col-sm-6 col-md-6 col-lg-4">
-      <a href="https://youtu.be/hs_Vyg60xdo" data-lity>
-        <p id="title1" class="card-title text-white text-center">
-          <b>LaLiga Santander</b>
-        </p>
-        <img
-          src="../assets/images/laliga/video1.jpeg"
-          class="card-img-top"
-          alt="..."
-        />
-        <div class="btn">
-          <!-- <button class="btn-play"></button> -->
-          <i class="fa fa-play text-dark"></i>
-        </div>
-        <div class="card-body">
-          <p class=" text-muted ">THU 05.03.2020</p>
-          <p class="border-0">
-            Kroos lit the path and Vinicius did the rest in ElClasico.
-          </p>
-        </div>
-        <div class="card-footer border-0">
-          <a href="#"
-            ><i class="fa fa-share-alt-square text-white fa-2x"></i
-          ></a>
-        </div>
-        <img
-          class="under-item"
-          src="../assets/images/laliga/under-item.png"
-          style="width: 100%; height: 25px; background-color: white"
-        />
-      </a>
-    </div>
+  <div id="item-v" class=" col-sm-6 col-md-6 col-lg-4 mb-5">
+    <p
+      class="card-header text-white text-center"
+      :style="{ backgroundColor: itemHeader[pickColor] }"
+    >
+      <b>LaLiga Santander</b>
+    </p>
+    <iframe
+      :src="getEmbedUrl()"
+      frameborder="0"
+      style="width:100%;height:450px;position:relative"
+    ></iframe>
+    <img
+      class="under-item"
+      src="../assets/images/laliga/under-item.png"
+      style="width: 100%; height: 25px"
+    />
+    <a :href="getEmbedUrl()">dfdsfdsfdsf</a>
   </div>
 </template>
 
 <script>
 export default {
-  name: "EventVideosItem"
+  name: "EventVideosItem",
+  props: ["video"],
+  data() {
+    return {
+      itemHeader: ["#FE2834", "#a23052", "#153680", "#022f3e"]
+    };
+  },
+  methods: {
+    getImgUrl() {
+      return this.video.thumbnail;
+    },
+    getEmbedUrl() {
+      return this.video.embed.slice(137, 181);
+    }
+  },
+  computed: {
+    pickColor() {
+      return Math.floor(Math.random() * this.itemHeader.length);
+    }
+  }
 };
 </script>
 
 <style scoped>
+p {
+  font-size: 0.8em;
+}
 #item-v {
   -webkit-transition: 0.6s ease-in-out;
   -moz-transition: 0.6s ease-in-out;
   -ms-transition: 0.6s ease-in-out;
   -o-transition: 0.6s ease-in-out;
   transition: 0.6s ease-in-out;
-  padding: 0;
+  padding: 0 15px;
+  color: white;
+  font-weight: 450;
 }
 
 #item-v:hover {
@@ -59,18 +68,20 @@ export default {
   transform: translateY(-10px);
 }
 
+.card-header {
+  padding: 0.6em;
+  line-height: 1.5em;
+}
+
 #item-v .card-body {
-  height: 140px;
+  height: 100px;
   color: white;
+  background-color: #000;
+  font-size: 18px;
 }
 
 #item-v img {
-  height: 200px;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  -ms-border-radius: 0px;
-  -o-border-radius: 0px;
-  border-radius: 0px;
+  height: 300px;
 }
 
 #item-v a:hover {
@@ -124,10 +135,8 @@ export default {
   line-height: 50px;
 }
 
-#item-v {
-  background-color: #0b1216;
-  color: white;
-  font-weight: 450;
+.card-footer {
+  background-color: #000;
 }
 
 i:hover {
@@ -141,5 +150,8 @@ i:hover {
   -ms-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
+}
+._scorebatEmbeddedPlayerW_ {
+  height: 450px;
 }
 </style>

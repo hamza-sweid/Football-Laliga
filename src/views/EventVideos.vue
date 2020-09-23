@@ -3,14 +3,20 @@
     <h2 class="text-center my-4">
       <b class="border-bottom border-danger p-1">LATEST VIDEOS</b>
     </h2>
-    <div class="row p-2 m-0 videos"></div>
+    <div class="row p-2 m-0">
+      <EventVideosItem
+        v-for="video in event.videos"
+        :key="video.title"
+        :video="video"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import store from "@/store/index";
 import { mapState } from "vuex";
-// import EventLeadersPlayers from "@/components/EventLeadersPlayers.vue";
+import EventVideosItem from "@/components/EventVideosItem.vue";
 
 function getPageEvents(routeTo, next) {
   store
@@ -30,7 +36,7 @@ function getPageEvents(routeTo, next) {
 
 export default {
   components: {
-    // EventLeadersPlayers
+    EventVideosItem
   },
 
   beforeRouteEnter(routeTo, from, next) {
@@ -45,8 +51,4 @@ export default {
 };
 </script>
 
-<style scoped>
-p {
-  font-size: 0.8em;
-}
-</style>
+<style scoped></style>

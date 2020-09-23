@@ -141,7 +141,7 @@ export const actions = {
     })
       .then((response) => {
         let videosFilter = response.data.filter(
-          (e) => e.competition.name == "ENGLAND: EFL Trophy"
+          (e) => e.competition.name == "SPAIN: La Liga"
         );
         commit("SET_VIDEOS", videosFilter);
       })
