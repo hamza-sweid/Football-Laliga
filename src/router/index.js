@@ -3,6 +3,8 @@ import VueRouter from "vue-router";
 import EventList from "@/views/EventList.vue";
 import EventShow from "@/views/EventShow.vue";
 import EventCreate from "@/views/EventCreate.vue";
+import EventLeaders from "@/views/EventLeaders.vue";
+import EventVideos from "@/views/EventVideos.vue";
 import NProgress from "nprogress";
 import store from "@/store/index";
 import NotFound from "@/views/NotFound.vue";
@@ -14,6 +16,18 @@ const routes = [
     path: "/",
     name: "event-list",
     component: EventList,
+    props: true // sent 'params' in as 'props'
+  },
+  {
+    path: "/event/leaders",
+    name: "event-leaders",
+    component: EventLeaders,
+    props: true // sent 'params' in as 'props'
+  },
+  {
+    path: "/event/videos",
+    name: "event-videos",
+    component: EventVideos,
     props: true // sent 'params' in as 'props'
   },
   {

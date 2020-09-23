@@ -1,15 +1,15 @@
 <template>
   <div>
-    <h1 class="mt-3 px-2">Serie A Standing</h1>
+    <h1 class="mt-3 px-2 hover">Serie A Standing</h1>
     <div class="mx-sm-0  standing"></div>
-    <div class="row">
+    <div class="row ">
       <span class="col-2 even">POSITON</span><span class="col-3 even">TEAM</span
       ><span class="col-1 even">PTS</span><span class="col-1 even">PLD</span
       ><span class="col-1 even">W</span><span class="col-1 even">D</span
       ><span class="col-1 even">L</span><span class="col-1 even">GF</span
       ><span class="col-1 even">GA</span>
     </div>
-    <event-card
+    <EventListTeams
       v-for="data in event.datas"
       :key="data.squad_name"
       :data="data"
@@ -18,11 +18,9 @@
 </template>
 
 <script>
-import EventCard from "@/components/EventCard.vue";
+import EventListTeams from "@/components/EventListTeams.vue";
 import { mapState } from "vuex";
 import store from "@/store/index";
-// import NProgress from "nprogress";
-// import axios from "axios";
 
 function getPageEvents(routeTo, next) {
   store
@@ -48,8 +46,12 @@ export default {
     // }
   },
   components: {
-    EventCard
+    EventListTeams
   },
+  data() {
+    return {};
+  },
+
   beforeRouteEnter(routeTo, from, next) {
     getPageEvents(routeTo, next);
   },
@@ -65,8 +67,8 @@ export default {
 <style scoope>
 h1 {
   background-color: #92daec;
-  font-size: 32px;
   line-height: 40px;
+  padding: 10px 0;
 }
 .row span {
   height: 55px;

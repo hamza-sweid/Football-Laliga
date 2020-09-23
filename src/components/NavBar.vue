@@ -9,6 +9,13 @@
       <router-link class="nav-item" :to="{ name: 'event-create' }"
         >Create</router-link
       >
+      |
+      <router-link class="nav-item" :to="{ name: 'event-leaders' }"
+        >Leaders</router-link
+      >|
+      <router-link class="nav-item" :to="{ name: 'event-videos' }"
+        >Videos</router-link
+      >
     </nav>
   </div>
 </template>

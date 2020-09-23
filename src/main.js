@@ -8,10 +8,11 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap/dist/js/bootstrap.min.js";
 import "font-awesome/css/font-awesome.min.css";
-import "@/assets/css/main.css";
+// import "@/assets/css/main.css";
 import "nprogress/nprogress.css";
 import Vuelidate from "vuelidate";
 import dateFilter from "./filters/dateFilter";
+import "./assets/css/api-main.css";
 
 import upperFirst from "lodash/upperFirst"; //install lodash
 import camelCase from "lodash/camelCase"; //install lodash

@@ -9,6 +9,8 @@ export const state = {
   eventsTotal: 0,
   perPage: 3,
   datas: [],
+  scorers: [],
+  videos: [],
   league: "liga"
 };
 
@@ -24,6 +26,12 @@ export const mutations = {
   },
   SET_API(state, datas) {
     state.datas = datas;
+  },
+  SET_SCORERS(state, scorers) {
+    state.scorers = scorers;
+  },
+  SET_VIDEOS(state, videos) {
+    state.videos = videos;
   }
 };
 
@@ -81,11 +89,61 @@ export const actions = {
         "x-rapidapi-host": "football98.p.rapidapi.com",
         "x-rapidapi-key": "9670f2d09dmsh124f86b13584964p11ac44jsnc3e1702551f9",
         useQueryString: true
-      },
+      }
       // timeout: 6000
     })
       .then((response) => {
         commit("SET_API", response.data);
+      })
+      .catch(() => {
+        const notification = {
+          type: "error",
+          message:
+            "There was a problem fetching the events, please refresh the page"
+        };
+        dispatch("notification/add", notification, { root: true }); //go to $store => notifications => run 'add' action
+      });
+  },
+  getScorers({ commit, dispatch, state }) {
+    axios({
+      method: "GET",
+      url: "https://football98.p.rapidapi.com/" + state.league + "/scorers",
+      headers: {
+        "content-type": "application/octet-stream",
+        "x-rapidapi-host": "football98.p.rapidapi.com",
+        "x-rapidapi-key": "9670f2d09dmsh124f86b13584964p11ac44jsnc3e1702551f9",
+        useQueryString: true
+      }
+      // timeout: 6000
+    })
+      .then((response) => {
+        commit("SET_SCORERS", response.data);
+      })
+      .catch(() => {
+        const notification = {
+          type: "error",
+          message:
+            "There was a problem fetching the events, please refresh the page"
+        };
+        dispatch("notification/add", notification, { root: true }); //go to $store => notifications => run 'add' action
+      });
+  },
+  getVideos({ dispatch, commit }) {
+    axios({
+      method: "GET",
+      url: "https://free-football-soccer-videos.p.rapidapi.com/",
+      headers: {
+        "content-type": "application/octet-stream",
+        "x-rapidapi-host": "free-football-soccer-videos.p.rapidapi.com",
+        "x-rapidapi-key": "9670f2d09dmsh124f86b13584964p11ac44jsnc3e1702551f9",
+        useQueryString: true
+      }
+    })
+      .then((response) => {
+        let videosFilter = response.data.filter(
+          (e) => e.competition.name == "ENGLAND: EFL Trophy"
+        );
+        commit("SET_VIDEOS", videosFilter);
       })
       .catch(() => {
         const notification = {

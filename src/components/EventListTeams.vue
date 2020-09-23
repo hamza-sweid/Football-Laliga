@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row event-card">
     <span class="col-2" :class="isEven ? 'even' : 'odd'">{{
       data.squad_position
     }}</span
@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: "EventCard",
+  name: "EventListTeams",
   props: ["data"],
   data() {
     return {
@@ -42,32 +42,28 @@ export default {
     getImgUrl() {
       return require("@/assets/images/laliga/" + this.data.squad_name + ".png");
     }
-  },
-  computed: {}
+  }
 };
 </script>
 
 <style scoped>
 .row span {
-  height: 55px;
-  line-height: 50px;
+  height: 60px;
+  line-height: 60px;
   font-weight: 400;
   font-size: 0.85em;
   letter-spacing: 2px;
 }
+
 .even {
   background-color: #25282a;
-  color: white;
 }
 
 .odd {
   background-color: #254150;
-  color: white;
 }
 
 .event-card {
-  padding: 20px;
-  margin-bottom: 24px;
   transition: all 0.2s linear;
   cursor: pointer;
 }
