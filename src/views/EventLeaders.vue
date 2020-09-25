@@ -15,9 +15,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            Scorers
-          </li>
+          <EventLeadersButtons />
         </ul>
       </div>
     </nav>
@@ -46,11 +44,7 @@
             :scorer="scorer"
           />
         </ul>
-        <!-- <img
-        class="under-item"
-        src="under-item.png"
-        style="width: 100%; height: 25px"
-      /> -->
+        <BaseLoader />
       </div>
     </div>
   </div>
@@ -60,6 +54,7 @@
 import store from "@/store/index";
 import { mapState } from "vuex";
 import EventLeadersPlayers from "@/components/EventLeadersPlayers.vue";
+import EventLeadersButtons from "@/components/EventLeadersButtons.vue";
 
 function getPageEvents(routeTo, next) {
   store
@@ -79,12 +74,14 @@ function getPageEvents(routeTo, next) {
 
 export default {
   components: {
-    EventLeadersPlayers
+    EventLeadersPlayers,
+    EventLeadersButtons
   },
 
   beforeRouteEnter(routeTo, from, next) {
     getPageEvents(routeTo, next);
   },
+
   beforeRouteUpdate(routeTo, routeFrom, next) {
     getPageEvents(routeTo, next);
   },
@@ -103,16 +100,7 @@ export default {
   background-color: #92daec;
   padding: 20px 0;
 }
-.nav-item {
-  flex: 1 1 0%;
-  text-align: center;
-  padding: 10px 35px;
-  background-color: #000000;
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
+
 .leaders {
   background-color: #254150;
   border: 50px solid #10202a;

@@ -11,7 +11,8 @@ export const state = {
   datas: [],
   scorers: [],
   videos: [],
-  league: "liga"
+  league: "liga",
+  isLoading: true
 };
 
 export const mutations = {
@@ -118,6 +119,7 @@ export const actions = {
     })
       .then((response) => {
         commit("SET_SCORERS", response.data);
+        state.isLoading = false;
       })
       .catch(() => {
         const notification = {

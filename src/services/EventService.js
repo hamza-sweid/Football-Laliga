@@ -15,8 +15,8 @@ export default {
   getEvents(perPage, page) {
     return apiClient.get("/events?_limit=" + perPage + "&_page=" + page); //Following baseURL above
   },
-  getEvent(event) {
-    return apiClient.get("/events/" + event);
+  getEvent(id) {
+    return apiClient.get("/events/" + id);
   },
   postEvent(event) {
     return apiClient.post("/events", event);

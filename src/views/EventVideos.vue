@@ -10,6 +10,7 @@
         :video="video"
       />
     </div>
+    <BaseLoader />
   </div>
 </template>
 

@@ -16,7 +16,6 @@
       src="../assets/images/laliga/under-item.png"
       style="width: 100%; height: 25px"
     />
-    <a :href="getEmbedUrl()">dfdsfdsfdsf</a>
   </div>
 </template>
 

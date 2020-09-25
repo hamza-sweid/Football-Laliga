@@ -14,6 +14,7 @@
       :key="data.squad_name"
       :data="data"
     />
+    <BaseLoader />
   </div>
 </template>
 
@@ -58,6 +59,7 @@ export default {
   beforeRouteUpdate(routeTo, routeFrom, next) {
     getPageEvents(routeTo, next);
   },
+
   computed: {
     ...mapState(["event", "user"])
   }

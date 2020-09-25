@@ -5,6 +5,7 @@ import EventShow from "@/views/EventShow.vue";
 import EventCreate from "@/views/EventCreate.vue";
 import EventLeaders from "@/views/EventLeaders.vue";
 import EventVideos from "@/views/EventVideos.vue";
+import RegisterUser from "@/views/RegisterUser.vue";
 import NProgress from "nprogress";
 import store from "@/store/index";
 import NotFound from "@/views/NotFound.vue";
@@ -29,6 +30,11 @@ const routes = [
     name: "event-videos",
     component: EventVideos,
     props: true // sent 'params' in as 'props'
+  },
+  {
+    path: "/register",
+    name: "register-user",
+    component: RegisterUser
   },
   {
     path: "/event/:id",

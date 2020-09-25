@@ -16,6 +16,10 @@
       <router-link class="nav-item" :to="{ name: 'event-videos' }"
         >Videos</router-link
       >
+      |
+      <router-link class="nav-item" :to="{ name: 'register-user' }"
+        >Register</router-link
+      >
     </nav>
   </div>
 </template>
