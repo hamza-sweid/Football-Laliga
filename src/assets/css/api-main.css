@@ -9,13 +9,11 @@ body {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 #app {
   box-sizing: border-box;
-  /* width: 1200px; */
-  padding: 0 20px 20px;
-  margin: 0 auto;
 }
 
 hr {
@@ -26,13 +24,11 @@ hr {
 
 a {
   color: #39b982;
-  font-weight: 600;
   background-color: transparent;
 }
 
-img {
-  border-style: none;
-  width: 100%;
+i:hover{
+  color: #7ebece
 }
 
 h1,
@@ -267,9 +263,8 @@ select::ms-expand {
   opacity: 0;
 }
 
-.nav .nav-item .router-link-exact-active {
-  color: #39b982 !important;
-  border-bottom: solid 2px #39b982;
+.router-link-exact-active {
+  border-bottom: 4px solid #7ebece;
 }
 
 .row {
@@ -281,7 +276,7 @@ select::ms-expand {
 }
 
 .no-hover:hover {
-  color: auto;
+  color: inherit;
 }
 
 * {
@@ -318,6 +313,8 @@ a:hover {
   -ms-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
+  color: inherit;
+  text-decoration: none;
 }
 
 .even {
