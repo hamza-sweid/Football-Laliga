@@ -27,8 +27,8 @@ a {
   background-color: transparent;
 }
 
-i:hover{
-  color: #7ebece
+i:hover {
+  color: #7ebece;
 }
 
 h1,
@@ -125,7 +125,7 @@ small {
   color: #fff;
 }
 
-button,
+/* button,
 label,
 input,
 optgroup,
@@ -261,7 +261,7 @@ select:focus::ms-value {
 
 select::ms-expand {
   opacity: 0;
-}
+} */
 
 .router-link-exact-active {
   border-bottom: 4px solid #7ebece;

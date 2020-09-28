@@ -1,6 +1,10 @@
 <template>
   <nav class="navbar sticky-top  navbar-expand-lg navbar-dark">
-    <base-button class="d-block d-lg-none"
+    <base-button
+      class="d-block d-lg-none"
+      data-toggle="modal"
+      data-target="#exampleModa3"
+      data-whatever="@mdo"
       >Login<i class="fa fa-user ml-2 no-hover"></i
     ></base-button>
     <a class="navbar-brand text-white mr-3" href="../index.php"
@@ -46,7 +50,11 @@
         </li>
       </ul>
     </div>
-    <base-button class="d-none d-lg-block"
+    <base-button
+      class="d-none d-lg-block"
+      data-toggle="modal"
+      data-target="#exampleModa3"
+      data-whatever="@mdo"
       >Login<i class="fa fa-user ml-2 no-hover"></i
     ></base-button>
   </nav>

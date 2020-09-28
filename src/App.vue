@@ -1,20 +1,25 @@
 <template>
   <div id="app">
-    <clubs-header class="clubs-header" />
-    <nav-bar />
-    <!-- <nav-bar1 /> -->
-    <notification-container class="noti" />
-    <router-view
-      :key="$route.fullPath"
-    /><!-- Tell the router to reload component when the full URL changes, including the query parameters -->
-    <Footer />
+    <div>
+      <clubs-header class="clubs-header" />
+      <nav-bar />
+      <!-- <nav-bar1 /> -->
+      <login-user></login-user>
+      <notification-container class="noti" />
+      <router-view
+        :key="$route.fullPath"
+      /><!-- Tell the router to reload component when the full URL changes, including the query parameters -->
+      <Footer />
+    </div>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import ClubsHeader from "@/components/header/ClubsHeader.vue";
 import NavBar from "@/components/navbar/NavBar.vue";
-// import NavBar1 from "@/components/NavBar1.vue";
+import LoginUser from "@/components/LoginUser.vue";
 import notificationContainer from "@/components/notificationContainer.vue";
 import Footer from "@/components/Footer.vue";
 
@@ -23,9 +28,12 @@ export default {
   components: {
     ClubsHeader,
     NavBar,
-    // NavBar1,
     notificationContainer,
+    LoginUser,
     Footer
+  },
+  computed: {
+    ...mapState(["event"])
   }
 };
 </script>
