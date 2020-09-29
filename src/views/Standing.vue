@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1 class="mt-3 px-2 hover">Serie A Standing</h1>
-    <div class="mx-sm-0  standing"></div>
+    <bread-crumb></bread-crumb>
     <div class="row ">
       <span class="col-2 even">POSITON</span><span class="col-3 even">TEAM</span
       ><span class="col-1 even">PTS</span><span class="col-1 even">PLD</span
@@ -19,9 +18,11 @@
 </template>
 
 <script>
-import StandingTeam from "@/components/StandingTeam.vue";
 import { mapState } from "vuex";
 import store from "@/store/index";
+
+import BreadCrumb from "@/components/BreadCrumb.vue";
+import StandingTeam from "@/components/StandingTeam.vue";
 
 function getPageEvents(routeTo, next) {
   store
@@ -47,7 +48,8 @@ export default {
     // }
   },
   components: {
-    StandingTeam
+    StandingTeam,
+    BreadCrumb
   },
   data() {
     return {};

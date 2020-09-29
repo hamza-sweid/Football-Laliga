@@ -1,5 +1,5 @@
 <template>
-  <div id="item-v" class=" col-sm-6 col-md-6 col-lg-4 mb-5">
+  <div class=" col-sm-6 col-md-6 col-lg-4 py-5">
     <p
       class="card-header text-white text-center"
       :style="{ backgroundColor: itemHeader[pickColor] }"
@@ -13,8 +13,8 @@
     ></iframe>
     <img
       class="under-item"
-      src="../assets/images/laliga/under-item.png"
-      style="width: 100%; height: 25px"
+      src="../assets/images/laliga/under-video-item.png"
+      style="width: 100%; height: 35px"
     />
   </div>
 </template>
@@ -152,5 +152,8 @@ i:hover {
 }
 ._scorebatEmbeddedPlayerW_ {
   height: 450px;
+}
+.VideoPlayerBlNP:hover:after {
+  opacity: 0;
 }
 </style>

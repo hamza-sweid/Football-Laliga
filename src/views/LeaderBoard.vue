@@ -1,6 +1,7 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg px-3 mx-3 leaderboard">
+    <bread-crumb></bread-crumb>
+    <!-- <nav class="navbar navbar-expand-lg px-3 leaderboard">
       <button
         class="navbar-toggler"
         type="button"
@@ -18,9 +19,9 @@
           <leader-board-buttons></leader-board-buttons>
         </ul>
       </div>
-    </nav>
+    </nav> -->
 
-    <div class="mx-3 px-3 leaders">
+    <div class="px-3 leaders">
       <div class="my-4 col-lg-12">
         <div class="card-title m-0">
           <img
@@ -53,8 +54,10 @@
 <script>
 import store from "@/store/index";
 import { mapState } from "vuex";
+
+import BreadCrumb from "@/components/BreadCrumb.vue";
 import LeaderBoardPlayer from "@/components/LeaderBoardPlayer.vue";
-import LeaderBoardButtons from "@/components/LeaderBoardButtons.vue";
+// import LeaderBoardButtons from "@/components/LeaderBoardButtons.vue";
 
 function getPageEvents(routeTo, next) {
   store
@@ -74,8 +77,9 @@ function getPageEvents(routeTo, next) {
 
 export default {
   components: {
-    LeaderBoardPlayer,
-    LeaderBoardButtons
+    BreadCrumb,
+    LeaderBoardPlayer
+    // LeaderBoardButtons
   },
 
   beforeRouteEnter(routeTo, from, next) {

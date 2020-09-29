@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <h2 class="text-center my-4">
-      <b class="border-bottom border-danger p-1">LATEST VIDEOS</b>
-    </h2>
+  <div class="latest-videos">
+    <bread-crumb></bread-crumb>
     <div class="row p-2 m-0">
       <latest-videos-item
         v-for="video in event.videos"
@@ -18,6 +16,7 @@
 import store from "@/store/index";
 import { mapState } from "vuex";
 import LatestVideosItem from "@/components/LatestVideosItem.vue";
+import BreadCrumb from "@/components/BreadCrumb.vue";
 
 function getPageEvents(routeTo, next) {
   store
@@ -37,7 +36,8 @@ function getPageEvents(routeTo, next) {
 
 export default {
   components: {
-    LatestVideosItem
+    LatestVideosItem,
+    BreadCrumb
   },
 
   beforeRouteEnter(routeTo, from, next) {
@@ -52,4 +52,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.latest-videos {
+  background-color: #10202a;
+}
+</style>

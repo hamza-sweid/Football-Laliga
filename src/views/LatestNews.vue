@@ -1,20 +1,24 @@
 <template>
-  <div class="news">
-    <h2>Latest News</h2>
-    <div class="row p-2">
-      <latest-news-item
-        v-for="item in event.news"
-        :key="item.id"
-        :item="item"
-      ></latest-news-item>
+  <div>
+    <bread-crumb></bread-crumb>
+    <div class="news">
+      <div class="row p-2">
+        <latest-news-item
+          v-for="item in event.news"
+          :key="item.id"
+          :item="item"
+        ></latest-news-item>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import LatestNewsItem from "@/components/LatestNewsItem.vue";
 import store from "@/store/index";
 import { mapState } from "vuex";
+
+import BreadCrumb from "@/components/BreadCrumb.vue";
+import LatestNewsItem from "@/components/LatestNewsItem.vue";
 
 function getPageEvents(routeTo, next) {
   store
@@ -34,7 +38,8 @@ function getPageEvents(routeTo, next) {
 
 export default {
   components: {
-    LatestNewsItem
+    LatestNewsItem,
+    BreadCrumb
   },
   computed: {
     ...mapState(["event"])

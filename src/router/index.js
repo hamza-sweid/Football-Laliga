@@ -36,8 +36,8 @@ const routes = [
     component: LatestVideos
   },
   {
-    path: "/latest-news",
-    name: "latest-news",
+    path: "/news",
+    name: "news",
     component: LatestNews
   },
   {

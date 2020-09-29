@@ -7,8 +7,11 @@
       data-whatever="@mdo"
       >Login<i class="fa fa-user ml-2 no-hover"></i
     ></base-button>
-    <a class="navbar-brand text-white mr-3" href="../index.php"
-      >Football Blog</a
+    <router-link
+      to="/"
+      class="navbar-brand text-white mr-3 border-0"
+      href="../index.php"
+      >Football Blog</router-link
     >
     <button
       id="navbar-toggle"
@@ -25,7 +28,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link to="/latest-news" class="nav-link text-white"
+          <router-link to="/news" class="nav-link text-white"
             >Latest News</router-link
           >
         </li>
@@ -34,10 +37,16 @@
             >Standing</router-link
           >
         </li>
-        <div class="logo d-none d-lg-flex">
-          <img src="@/assets/images/laliga/LaLiga.svg" alt="" />
-          <p class="text-white mt-2">LaLiga</p>
-        </div>
+        <li class="d-none d-lg-flex">
+          <router-link class="logo border-0" to="/">
+            <img
+              class="logo-img"
+              src="@/assets/images/laliga/LaLiga.svg"
+              alt=""
+            />
+            <p class="text-white mt-2">LaLiga</p></router-link
+          >
+        </li>
         <li class="nav-item">
           <router-link to="/videos" class="nav-link text-white"
             >Latest Videos</router-link
@@ -108,7 +117,7 @@ export default {};
   line-height: 35px;
   align-items: center;
 }
-.logo img {
+.logo .logo-img {
   background-color: transparent;
   width: 50px;
   height: 50px;
