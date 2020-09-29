@@ -10,7 +10,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 // import "@/assets/css/main.css";
 import "nprogress/nprogress.css";
-import "lity";
 import Vuelidate from "vuelidate";
 import dateFilter from "./filters/dateFilter";
 import "./assets/css/api-main.css";

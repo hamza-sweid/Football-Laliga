@@ -15,7 +15,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <EventLeadersButtons />
+          <leader-board-buttons></leader-board-buttons>
         </ul>
       </div>
     </nav>
@@ -38,11 +38,11 @@
           ><span class="col-2 even">Role</span>
         </div>
         <ul class="list-group list-group-flush">
-          <Event-leaders-players
+          <leader-board-player
             v-for="scorer in event.scorers"
             :key="scorer.player_name"
             :scorer="scorer"
-          />
+          ></leader-board-player>
         </ul>
         <BaseLoader />
       </div>
@@ -53,8 +53,8 @@
 <script>
 import store from "@/store/index";
 import { mapState } from "vuex";
-import EventLeadersPlayers from "@/components/EventLeadersPlayers.vue";
-import EventLeadersButtons from "@/components/EventLeadersButtons.vue";
+import LeaderBoardPlayer from "@/components/LeaderBoardPlayer.vue";
+import LeaderBoardButtons from "@/components/LeaderBoardButtons.vue";
 
 function getPageEvents(routeTo, next) {
   store
@@ -74,8 +74,8 @@ function getPageEvents(routeTo, next) {
 
 export default {
   components: {
-    EventLeadersPlayers,
-    EventLeadersButtons
+    LeaderBoardPlayer,
+    LeaderBoardButtons
   },
 
   beforeRouteEnter(routeTo, from, next) {

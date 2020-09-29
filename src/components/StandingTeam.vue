@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: "EventListTeams",
+  name: "StandingTeam",
   props: ["data"],
   data() {
     return {

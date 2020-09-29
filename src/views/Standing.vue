@@ -9,17 +9,17 @@
       ><span class="col-1 even">L</span><span class="col-1 even">GF</span
       ><span class="col-1 even">GA</span>
     </div>
-    <EventListTeams
+    <standing-team
       v-for="data in event.datas"
       :key="data.squad_name"
       :data="data"
-    />
+    ></standing-team>
     <BaseLoader />
   </div>
 </template>
 
 <script>
-import EventListTeams from "@/components/EventListTeams.vue";
+import StandingTeam from "@/components/StandingTeam.vue";
 import { mapState } from "vuex";
 import store from "@/store/index";
 
@@ -47,7 +47,7 @@ export default {
     // }
   },
   components: {
-    EventListTeams
+    StandingTeam
   },
   data() {
     return {};

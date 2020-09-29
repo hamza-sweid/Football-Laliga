@@ -1,27 +1,24 @@
 <template>
-  <div>
-    <h2 class="text-center my-4">
-      <b class="border-bottom border-danger p-1">LATEST VIDEOS</b>
-    </h2>
-    <div class="row p-2 m-0">
-      <EventVideosItem
-        v-for="video in event.videos"
-        :key="video.title"
-        :video="video"
-      />
+  <div class="news">
+    <h2>Latest News</h2>
+    <div class="row p-2">
+      <latest-news-item
+        v-for="item in event.news"
+        :key="item.id"
+        :item="item"
+      ></latest-news-item>
     </div>
-    <BaseLoader />
   </div>
 </template>
 
 <script>
+import LatestNewsItem from "@/components/LatestNewsItem.vue";
 import store from "@/store/index";
 import { mapState } from "vuex";
-import EventVideosItem from "@/components/EventVideosItem.vue";
 
 function getPageEvents(routeTo, next) {
   store
-    .dispatch("event/getVideos")
+    .dispatch("event/getNews")
 
     .then(() => {
       next(); // continue on to create and render our component
@@ -37,19 +34,25 @@ function getPageEvents(routeTo, next) {
 
 export default {
   components: {
-    EventVideosItem
+    LatestNewsItem
   },
-
+  computed: {
+    ...mapState(["event"])
+  },
   beforeRouteEnter(routeTo, from, next) {
     getPageEvents(routeTo, next);
   },
   beforeRouteUpdate(routeTo, routeFrom, next) {
     getPageEvents(routeTo, next);
-  },
-  computed: {
-    ...mapState(["event"])
   }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.news {
+  margin-bottom: 50px;
+}
+.news h2 {
+  margin-bottom: 20px;
+}
+</style>

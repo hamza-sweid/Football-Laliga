@@ -25,12 +25,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link to="/" class="nav-link text-white"
+          <router-link to="/latest-news" class="nav-link text-white"
             >Latest News</router-link
           >
         </li>
         <li class="nav-item">
-          <router-link to="/register" class="nav-link text-white"
+          <router-link to="/standing" class="nav-link text-white"
             >Standing</router-link
           >
         </li>
@@ -39,12 +39,12 @@
           <p class="text-white mt-2">LaLiga</p>
         </div>
         <li class="nav-item">
-          <router-link to="/event/videos" class="nav-link text-white"
+          <router-link to="/videos" class="nav-link text-white"
             >Latest Videos</router-link
           >
         </li>
         <li class="nav-item">
-          <router-link to="/event/leaders" class="nav-link text-white"
+          <router-link to="/leaderboard" class="nav-link text-white"
             >Leaderboard</router-link
           >
         </li>

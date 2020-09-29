@@ -13,19 +13,18 @@
     </div>
     <div class="col-md-6 text-center social-media my-5 p-4">
       <a
-        href="<?php echo $setting['facebook']; ?>"
-        target="_blank"
+        href="mailto:hamza.sweid963@gmail.com"
         class="icon icon-sm icon-white icon-hover mx-2"
-        ><i class="fa fa-facebook fa-lg"></i
+        ><i class="fa fa-envelope-o fa-lg"></i
       ></a>
       <a
-        href="<?php echo $setting['twitter']; ?>"
-        target="_blank"
+        href="https://api.whatsapp.com/send?phone=963962674393"
         class="icon icon-sm icon-white icon-hover mx-2"
+        target="_blank"
         ><i class="fa fa-whatsapp fa-lg"></i
       ></a>
       <a
-        href="<?php echo $setting['google']; ?>"
+        href="https://www.linkedin.com/in/hamza-sweid-345746184/"
         target="_blank"
         class="icon icon-sm icon-white icon-hover mx-2"
         ><i class="fa fa-linkedin fa-lg"></i
@@ -47,8 +46,6 @@ export default {};
   height: 100%;
   background-color: #181818;
   color: #fff;
-  margin-top: 50px;
-  padding: 30px 0;
   font-weight: bold;
   font-size: 1em;
 }

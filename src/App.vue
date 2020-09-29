@@ -3,12 +3,13 @@
     <div>
       <clubs-header class="clubs-header" />
       <nav-bar />
-      <!-- <nav-bar1 /> -->
       <login-user></login-user>
       <notification-container class="noti" />
       <router-view
         :key="$route.fullPath"
       /><!-- Tell the router to reload component when the full URL changes, including the query parameters -->
+      <img class="mt-4" src="@/assets/images/laliga/above-footer.svg" alt="" />
+      <BrandList />
       <Footer />
     </div>
   </div>
@@ -18,10 +19,11 @@
 import { mapState } from "vuex";
 
 import ClubsHeader from "@/components/header/ClubsHeader.vue";
-import NavBar from "@/components/navbar/NavBar.vue";
+import NavBar from "@/components/NavBar.vue";
 import LoginUser from "@/components/LoginUser.vue";
 import notificationContainer from "@/components/notificationContainer.vue";
 import Footer from "@/components/Footer.vue";
+import BrandList from "@/components/BrandList.vue";
 
 export default {
   name: "App",
@@ -30,7 +32,8 @@ export default {
     NavBar,
     notificationContainer,
     LoginUser,
-    Footer
+    Footer,
+    BrandList
   },
   computed: {
     ...mapState(["event"])

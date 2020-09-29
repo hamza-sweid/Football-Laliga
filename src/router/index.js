@@ -1,10 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import EventList from "@/views/EventList.vue";
+import Standing from "@/views/Standing.vue";
+import LatestNews from "@/views/LatestNews.vue";
 import EventShow from "@/views/EventShow.vue";
 import EventCreate from "@/views/EventCreate.vue";
-import EventLeaders from "@/views/EventLeaders.vue";
-import EventVideos from "@/views/EventVideos.vue";
+import LeaderBoard from "@/views/LeaderBoard.vue";
+import LatestVideos from "@/views/LatestVideos.vue";
 import NProgress from "nprogress";
 import store from "@/store/index";
 import NotFound from "@/views/NotFound.vue";
@@ -15,22 +16,30 @@ const routes = [
   {
     path: "/",
     name: "event-list",
-    component: EventList,
+    component: NotFound,
     props: true // sent 'params' in as 'props'
   },
   {
-    path: "/event/leaders",
-    name: "event-leaders",
-    component: EventLeaders,
+    path: "/standing",
+    name: "standing",
+    component: Standing
+  },
+  {
+    path: "/leaderboard",
+    name: "leaderboard",
+    component: LeaderBoard,
     props: true // sent 'params' in as 'props'
   },
   {
-    path: "/event/videos",
-    name: "event-videos",
-    component: EventVideos,
-    props: true // sent 'params' in as 'props'
+    path: "/videos",
+    name: "videos",
+    component: LatestVideos
   },
-
+  {
+    path: "/latest-news",
+    name: "latest-news",
+    component: LatestNews
+  },
   {
     path: "/event/:id",
     name: "event-show",

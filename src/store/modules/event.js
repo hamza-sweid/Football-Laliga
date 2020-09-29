@@ -11,8 +11,11 @@ export const state = {
   datas: [],
   scorers: [],
   videos: [],
+  news: [],
   league: "liga",
-  isLoading: false
+  isLoading: false,
+  itemHeader: ["#FE2834", "#a23052", "#153680", "#022f3e"],
+  pickedColor: ""
 };
 
 export const mutations = {
@@ -33,6 +36,9 @@ export const mutations = {
   },
   SET_VIDEOS(state, videos) {
     state.videos = videos;
+  },
+  SET_NEWS(state, news) {
+    state.news = news;
   }
 };
 
@@ -155,6 +161,21 @@ export const actions = {
         };
         dispatch("notification/add", notification, { root: true }); //go to $store => notifications => run 'add' action
       });
+  },
+  getNews({ commit, dispatch }) {
+    axios
+      .get("https://hamza-sweid.github.io/Projects/laliga-news.json")
+      .then((res) => {
+        commit("SET_NEWS", res.data);
+      })
+      .catch(() => {
+        const notification = {
+          type: "error",
+          message:
+            "There was a problem fetching the events, please refresh the page"
+        };
+        dispatch("notification/add", notification, { root: true }); //go to $store => notifications => run 'add' action
+      });
   }
 };
 
@@ -164,5 +185,10 @@ export const getters = {
   },
   x: (state) => {
     return state.events.length;
+  },
+  pickColor(state) {
+    return console.log(
+      state.itemHeader[Math.floor(Math.random() * state.itemHeader.length)]
+    );
   }
 };

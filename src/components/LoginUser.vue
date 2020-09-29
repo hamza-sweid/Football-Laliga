@@ -45,6 +45,9 @@
             </fieldset>
           </div>
         </div>
+        <p class="text-center text-muted">
+          By Registering, you can access to all our features.
+        </p>
       </div>
     </div>
   </div>
@@ -186,7 +189,7 @@ label {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  height: 300px;
+  height: 250px;
   text-align: center;
 }
 </style>

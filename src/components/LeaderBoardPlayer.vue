@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "EventLeadersPlayers",
+  name: "LeaderBoardPlayer",
 
   props: ["scorer"],
 
