@@ -1,13 +1,7 @@
 <template>
   <div>
     <bread-crumb></bread-crumb>
-    <div class="row ">
-      <span class="col-2 even">POSITON</span><span class="col-3 even">TEAM</span
-      ><span class="col-1 even">PTS</span><span class="col-1 even">PLD</span
-      ><span class="col-1 even">W</span><span class="col-1 even">D</span
-      ><span class="col-1 even">L</span><span class="col-1 even">GF</span
-      ><span class="col-1 even">GA</span>
-    </div>
+    <standing-header></standing-header>
     <standing-team
       v-for="data in event.datas"
       :key="data.squad_name"
@@ -21,8 +15,9 @@
 import { mapState } from "vuex";
 import store from "@/store/index";
 
+import StandingHeader from "@/components/standing-components/StandingHeader.vue";
 import BreadCrumb from "@/components/BreadCrumb.vue";
-import StandingTeam from "@/components/StandingTeam.vue";
+import StandingTeam from "@/components/standing-components/StandingTeam.vue";
 
 function getPageEvents(routeTo, next) {
   store
@@ -41,15 +36,11 @@ function getPageEvents(routeTo, next) {
 }
 
 export default {
-  props: {
-    // league: {
-    //   type: String,
-    //   required: true
-    // }
-  },
+  props: {},
   components: {
     StandingTeam,
-    BreadCrumb
+    BreadCrumb,
+    StandingHeader
   },
   data() {
     return {};
@@ -58,36 +49,15 @@ export default {
   beforeRouteEnter(routeTo, from, next) {
     getPageEvents(routeTo, next);
   },
+
   beforeRouteUpdate(routeTo, routeFrom, next) {
     getPageEvents(routeTo, next);
   },
 
   computed: {
-    ...mapState(["event", "user"])
+    ...mapState(["event"])
   }
 };
 </script>
 
-<style scoope>
-h1 {
-  background-color: #92daec;
-  line-height: 40px;
-  padding: 10px 0;
-}
-.row span {
-  height: 55px;
-  line-height: 50px;
-  font-weight: 400;
-  font-size: 0.85em;
-  letter-spacing: 2px;
-}
-.even {
-  background-color: #25282a;
-  color: white;
-}
-
-.odd {
-  background-color: #254150;
-  color: white;
-}
-</style>
+<style scoope></style>

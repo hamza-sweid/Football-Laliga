@@ -21,23 +21,11 @@
       </div>
     </nav> -->
 
-    <div class="px-3 leaders">
-      <div class="my-4 col-lg-12">
-        <div class="card-title m-0">
-          <img
-            src="../assets/images/laliga/messi.jpeg"
-            class="card-img-top"
-            alt="..."
-          />
-        </div>
-        <div class="row ">
-          <span class="col-1 even">Position</span
-          ><span class="col-3 even">Name</span
-          ><span class="col-3 even">Team</span
-          ><span class="col-1 even">Goals</span
-          ><span class="col-2 even">Penalties</span
-          ><span class="col-2 even">Role</span>
-        </div>
+    <div class="px-1 px-md-3 leaders">
+      <div class="my-4">
+        <leader-board-image></leader-board-image>
+        <leader-board-header></leader-board-header>
+
         <ul class="list-group list-group-flush">
           <leader-board-player
             v-for="scorer in event.scorers"
@@ -56,7 +44,9 @@ import store from "@/store/index";
 import { mapState } from "vuex";
 
 import BreadCrumb from "@/components/BreadCrumb.vue";
-import LeaderBoardPlayer from "@/components/LeaderBoardPlayer.vue";
+import LeaderBoardImage from "@/components/leaderboard-components/LeaderBoardImage.vue";
+import LeaderBoardHeader from "@/components/leaderboard-components/LeaderBoardHeader.vue";
+import LeaderBoardPlayer from "@/components/leaderboard-components/LeaderBoardPlayer.vue";
 // import LeaderBoardButtons from "@/components/LeaderBoardButtons.vue";
 
 function getPageEvents(routeTo, next) {
@@ -78,6 +68,8 @@ function getPageEvents(routeTo, next) {
 export default {
   components: {
     BreadCrumb,
+    LeaderBoardImage,
+    LeaderBoardHeader,
     LeaderBoardPlayer
     // LeaderBoardButtons
   },
@@ -96,19 +88,24 @@ export default {
 </script>
 
 <style scoped>
-.navbar {
+/* .navbar {
   display: flex;
   justify-content: center;
-}
-.leaderboard {
+} */
+/* .leaderboard {
   background-color: #92daec;
   padding: 20px 0;
-}
+} */
 
 .leaders {
   background-color: #254150;
   border: 50px solid #10202a;
   letter-spacing: 1px;
+}
+@media (max-width: 768px) {
+  .leaders {
+    border: 10px solid #10202a;
+  }
 }
 .row span {
   height: 55px;
@@ -122,33 +119,7 @@ export default {
   max-width: 33.333333%;
 }
 
-.card-title {
-  height: 400px;
-  background-color: #10202a;
-  position: relative;
-  color: white;
-  padding: 10px;
-  display: flex;
-}
-
-.card-title img {
-  height: 300px;
-  width: 300px;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border-radius: 50%;
-  display: flex;
-  margin: auto;
-  border: 7px solid #fff;
-}
-
 .list-group li {
   height: 50px;
-}
-
-.ul li:nth-of-type(1) span:nth-of-type(2) {
-  font-size: 1.5em;
 }
 </style>
