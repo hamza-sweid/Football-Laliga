@@ -26,7 +26,7 @@ import StandingTeam from "@/components/StandingTeam.vue";
 
 function getPageEvents(routeTo, next) {
   store
-    .dispatch("event/getData")
+    .dispatch("event/getStanding")
 
     .then(() => {
       next(); // continue on to create and render our component

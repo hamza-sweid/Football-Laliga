@@ -1,24 +1,40 @@
 import axios from "axios";
 
-const apiClient = axios.create({
-  //A single Axios instance for our entire app
-  baseURL: `http://localhost:3000`, //Base URL for all to call
-  withCredentials: false, // This is the default
+const rapidApi = axios.create({
+  baseURL: "https://football98.p.rapidapi.com/liga",
   headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json"
-  }, //For authentication & configuration
-  timeout: 3000 //throw error if API call takes more than x secs
+    "content-type": "application/octet-stream",
+    "x-rapidapi-host": "football98.p.rapidapi.com",
+    "x-rapidapi-key": "9670f2d09dmsh124f86b13584964p11ac44jsnc3e1702551f9",
+    useQueryString: true
+  }
+});
+
+const videosApi = axios.create({
+  baseURL: "https://free-football-soccer-videos.p.rapidapi.com/",
+  headers: {
+    "content-type": "application/octet-stream",
+    "x-rapidapi-host": "free-football-soccer-videos.p.rapidapi.com",
+    "x-rapidapi-key": "9670f2d09dmsh124f86b13584964p11ac44jsnc3e1702551f9",
+    useQueryString: true
+  }
+});
+
+const myApi = axios.create({
+  baseURL: "https://hamza-sweid.github.io/Projects/laliga-news.json"
 });
 
 export default {
-  getEvents(perPage, page) {
-    return apiClient.get("/events?_limit=" + perPage + "&_page=" + page); //Following baseURL above
+  getStanding() {
+    return rapidApi.get("/squads");
   },
-  getEvent(id) {
-    return apiClient.get("/events/" + id);
+  getLeaders() {
+    return rapidApi.get("/scorers");
   },
-  postEvent(event) {
-    return apiClient.post("/events", event);
+  getVideos() {
+    return videosApi.get("");
+  },
+  getNews() {
+    return myApi.get("");
   }
 };
