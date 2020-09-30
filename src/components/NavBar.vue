@@ -7,10 +7,7 @@
       data-whatever="@mdo"
       >Login<i class="fa fa-user ml-2 no-hover"></i
     ></base-button>
-    <router-link
-      to="/"
-      class="navbar-brand text-white mr-3 border-0"
-      href="../index.php"
+    <router-link to="/" class="navbar-brand text-white mr-3 border-0"
       >Football Blog</router-link
     >
     <button

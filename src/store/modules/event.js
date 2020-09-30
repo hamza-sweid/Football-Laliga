@@ -13,9 +13,7 @@ export const state = {
   videos: [],
   news: [],
   league: "liga",
-  isLoading: false,
-  itemHeader: ["#FE2834", "#a23052", "#153680", "#022f3e"],
-  pickedColor: ""
+  isLoading: false
 };
 
 export const mutations = {
@@ -185,10 +183,5 @@ export const getters = {
   },
   x: (state) => {
     return state.events.length;
-  },
-  pickColor(state) {
-    return console.log(
-      state.itemHeader[Math.floor(Math.random() * state.itemHeader.length)]
-    );
   }
 };

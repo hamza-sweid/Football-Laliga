@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import LaligaHome from "@/views/LaligaHome.vue";
 import Standing from "@/views/Standing.vue";
 import LatestNews from "@/views/LatestNews.vue";
 import EventShow from "@/views/EventShow.vue";
@@ -15,9 +16,8 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "event-list",
-    component: NotFound,
-    props: true // sent 'params' in as 'props'
+    name: "home",
+    component: LaligaHome
   },
   {
     path: "/standing",
