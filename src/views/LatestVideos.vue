@@ -1,14 +1,13 @@
 <template>
   <div class="latest-videos">
     <bread-crumb></bread-crumb>
-    <div class="row p-2 m-0">
+    <div class="row px-3 py-5 m-0">
       <latest-videos-item
         v-for="video in event.videos"
         :key="video.title"
         :video="video"
       ></latest-videos-item>
     </div>
-    <BaseLoader />
   </div>
 </template>
 

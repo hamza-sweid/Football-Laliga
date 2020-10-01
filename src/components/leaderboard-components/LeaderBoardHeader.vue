@@ -1,6 +1,6 @@
 <template>
   <div class="row l-b-header">
-    <span class="col-2">Position</span><span class="col-3">Name</span
+    <span class="col-1">Position</span><span class="col-4">Name</span
     ><span class="col-3">Team</span><span class="col-1">GS</span
     ><span class="col-1">PNS</span><span class="col-2">RL</span>
   </div>

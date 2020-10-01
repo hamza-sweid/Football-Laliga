@@ -1,5 +1,5 @@
 <template>
-  <div class="item col-sm-6 col-md-6 col-lg-4 px-4">
+  <div class="item col-sm-6 col-md-6 col-lg-4 my-4 px-4">
     <p
       class="card-header text-white text-center"
       :style="{ backgroundColor: itemHeader[pickColor] }"
@@ -45,9 +45,6 @@ export default {
 </script>
 
 <style scoped>
-.item {
-  margin: 30px 0;
-}
 .item:hover {
   transform: scale(1.01);
   transition: 0s ease-in-out;

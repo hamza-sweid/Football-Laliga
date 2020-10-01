@@ -1,25 +1,29 @@
 <template>
-  <div class=" col-sm-6 col-md-6 col-lg-4 py-5">
-    <p
-      class="card-header text-white text-center"
-      :style="{ backgroundColor: itemHeader[pickColor] }"
-    >
-      <b>LaLiga Santander</b>
-    </p>
-    <iframe
-      :src="getEmbedUrl()"
-      frameborder="0"
-      style="width:100%;height:450px;position:relative"
-    ></iframe>
-    <img
-      class="under-item"
-      src="../assets/images/laliga/under-video-item.png"
-      style="width: 100%; height: 35px"
-    />
+  <div class=" col-sm-6 col-md-6 col-lg-4 pb-5">
+    <base-loader v-if="event.isLoading"></base-loader>
+    <div v-else>
+      <p
+        class="card-header text-white text-center"
+        :style="{ backgroundColor: itemHeader[pickColor] }"
+      >
+        <b>LaLiga Santander</b>
+      </p>
+      <iframe
+        :src="getEmbedUrl()"
+        frameborder="0"
+        style="width:100%;height:450px;position:relative"
+      ></iframe>
+      <img
+        class="under-item"
+        src="../assets/images/laliga/under-video-item.png"
+        style="width: 100%; height: 35px"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "LatestVideosItem",
   props: ["video"],
@@ -39,7 +43,8 @@ export default {
   computed: {
     pickColor() {
       return Math.floor(Math.random() * this.itemHeader.length);
-    }
+    },
+    ...mapState(["event"])
   }
 };
 </script>

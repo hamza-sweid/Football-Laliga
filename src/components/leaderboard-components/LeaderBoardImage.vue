@@ -1,15 +1,19 @@
 <template>
   <div class="card-title m-0">
-    <img
-      src="@/assets/images/laliga/messi.jpeg"
-      class="card-img-top"
-      alt="leader-player"
-    />
+    <img :src="getImgUrl()" class="card-img-top" alt="leader-player" />
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "LeaderBoardImage",
+  props: ["img"],
+  methods: {
+    getImgUrl() {
+      return require("@/assets/images/laliga/" + this.img + ".jpg");
+    }
+  }
+};
 </script>
 
 <style scoped>

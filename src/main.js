@@ -5,7 +5,7 @@ import store from "./store";
 
 import "bootstrap";
 import "jquery";
-// import "popper.js";
+import "popper.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "bootstrap/dist/js/bootstrap.min.js";
 import "font-awesome/css/font-awesome.min.css";
@@ -44,5 +44,8 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
+  created() {
+    store.dispatch("event/getStanding");
+  },
   render: (h) => h(App)
 }).$mount("#app");

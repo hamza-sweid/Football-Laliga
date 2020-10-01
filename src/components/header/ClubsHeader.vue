@@ -3,7 +3,7 @@
     <span>Web Clubs<i class="fa fa-external-link text-muted mx-2"></i></span>
     <div class="web-clubs">
       <ClubsHeaderItem
-        v-for="team in event.datas"
+        v-for="team in event.standing"
         :key="team.squad_name"
         :team="team"
         class="clubs"

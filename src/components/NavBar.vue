@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar sticky-top  navbar-expand-lg navbar-dark">
     <base-button
-      class="d-block d-lg-none"
+      class="d-block d-lg-none auto-click"
       data-toggle="modal"
       data-target="#exampleModa3"
       data-whatever="@mdo"
@@ -67,7 +67,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "NavBar",
+  created() {
+    setTimeout(() => {
+      document.querySelector(".auto-click").click();
+    }, 10000);
+  }
+};
 </script>
 
 <style scoped>

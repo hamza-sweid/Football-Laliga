@@ -23,7 +23,9 @@
 
     <div class="px-1 px-md-3 leaders">
       <div class="my-4">
-        <leader-board-image></leader-board-image>
+        <leader-board-image
+          :img="event.scorers[0].player_name"
+        ></leader-board-image>
         <leader-board-header></leader-board-header>
 
         <ul class="list-group list-group-flush">
@@ -33,7 +35,6 @@
             :scorer="scorer"
           ></leader-board-player>
         </ul>
-        <BaseLoader />
       </div>
     </div>
   </div>
@@ -66,6 +67,7 @@ function getPageEvents(routeTo, next) {
 }
 
 export default {
+  name: "LeaderBoard",
   components: {
     BreadCrumb,
     LeaderBoardImage,

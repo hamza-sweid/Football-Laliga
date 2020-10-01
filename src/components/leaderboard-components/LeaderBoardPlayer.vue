@@ -1,10 +1,10 @@
 <template>
   <div>
     <li class="row leaderboard-player">
-      <span class="col-2 num-color" :class="isEven ? 'even' : 'odd'">{{
+      <span class="col-1 num-color" :class="isEven ? 'even' : 'odd'">{{
         scorer.player_position
       }}</span>
-      <span class="col-3" :class="isEven ? 'even' : 'odd'">{{
+      <span class="col-4 player-name" :class="isEven ? 'even' : 'odd'">{{
         scorer.player_name
       }}</span>
       <span class="col-3" :class="isEven ? 'even' : 'odd'">

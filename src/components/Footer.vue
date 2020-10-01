@@ -11,7 +11,7 @@
         ></base-button
       >
     </div>
-    <div class="col-md-6 text-center social-media my-5 p-4">
+    <div class="col-md-6 text-center social-media my-5 pt-3">
       <a
         href="mailto:hamza.sweid963@gmail.com"
         class="icon icon-sm icon-white icon-hover mx-2"

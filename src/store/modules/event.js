@@ -5,17 +5,17 @@ export const namespaced = true;
 export const state = {
   eventsTotal: 0,
   perPage: 3,
-  datas: [],
+  standing: [],
   scorers: [],
   videos: [],
   news: [],
   league: "liga",
-  isLoading: false
+  isLoading: true
 };
 
 export const mutations = {
-  SET_STANDING(state, datas) {
-    state.datas = datas;
+  SET_STANDING(state, standing) {
+    state.standing = standing;
   },
   SET_SCORERS(state, scorers) {
     state.scorers = scorers;
@@ -65,6 +65,7 @@ export const actions = {
           (e) => e.competition.name == "SPAIN: La Liga"
         );
         commit("SET_VIDEOS", videosFilter);
+        state.isLoading = false;
       })
       .catch(() => {
         const notification = {

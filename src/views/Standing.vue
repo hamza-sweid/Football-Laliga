@@ -3,11 +3,10 @@
     <bread-crumb></bread-crumb>
     <standing-header></standing-header>
     <standing-team
-      v-for="data in event.datas"
+      v-for="data in event.standing"
       :key="data.squad_name"
       :data="data"
     ></standing-team>
-    <BaseLoader />
   </div>
 </template>
 
@@ -15,8 +14,8 @@
 import { mapState } from "vuex";
 import store from "@/store/index";
 
-import StandingHeader from "@/components/standing-components/StandingHeader.vue";
 import BreadCrumb from "@/components/BreadCrumb.vue";
+import StandingHeader from "@/components/standing-components/StandingHeader.vue";
 import StandingTeam from "@/components/standing-components/StandingTeam.vue";
 
 function getPageEvents(routeTo, next) {
@@ -38,9 +37,9 @@ function getPageEvents(routeTo, next) {
 export default {
   props: {},
   components: {
-    StandingTeam,
     BreadCrumb,
-    StandingHeader
+    StandingHeader,
+    StandingTeam
   },
   data() {
     return {};
