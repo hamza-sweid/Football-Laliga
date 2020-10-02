@@ -24,7 +24,7 @@ Vue.filter("dateFilter", dateFilter);
 
 //Make Global Components
 const requireComponent = require.context(
-  "./components", //which directory
+  "./components/base-components", //which directory
   false,
   /Base[A-Z]\w+\.(vue|js)$/ //files that start & end with
 );

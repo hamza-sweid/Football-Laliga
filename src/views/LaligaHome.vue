@@ -51,7 +51,7 @@
       </div>
     </div>
     <router-link to="/leaderboard">
-      <base-see-more2>All Laliga In Goals</base-see-more2>
+      <base-see-more2>All Leaders In Goals</base-see-more2>
     </router-link>
   </div>
 </template>

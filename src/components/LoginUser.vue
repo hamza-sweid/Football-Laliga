@@ -9,6 +9,14 @@
   >
     <div class="modal-dialog" role="document">
       <div class="modal-content">
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
         <div class="modal-header text-center">
           <img src="@/assets/images/laliga/x.png" style="width:30%" alt="" />
           <h2>LaLiga</h2>
@@ -72,6 +80,19 @@ export default {
 <style lang="scss" scoped>
 .modal-content {
   background-color: #071625;
+  color: #fff;
+  top: -20px;
+}
+.close {
+  width: 100%;
+  padding: 5px 20px;
+  text-align: right;
+}
+.close:hover {
+  background-color: transparent;
+}
+.close span {
+  font-size: 35px;
   color: #fff;
 }
 .modal-header {

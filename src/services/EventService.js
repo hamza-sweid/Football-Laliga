@@ -21,7 +21,7 @@ const videosApi = axios.create({
 });
 
 const myApi = axios.create({
-  baseURL: "https://hamza-sweid.github.io/Projects/laliga-news.json"
+  baseURL: "https://hamza-sweid.github.io/Projects/news/laliga-news.json"
 });
 
 export default {

@@ -5,10 +5,10 @@
         <span id="typed-strings">Would you like to get my CV in PDF?</span
         ><span class="blinking"></span>
       </p>
-      <base-button
+      <base-login-button
         ><a href="Hamza's Resume.pdf" target="_blank"
           >Download my CV</a
-        ></base-button
+        ></base-login-button
       >
     </div>
     <div class="col-md-6 text-center social-media my-5 pt-3">
@@ -30,7 +30,10 @@
         ><i class="fa fa-linkedin fa-lg"></i
       ></a>
       <p class="text-muted mt-3 mb-0">
-        © 2020 Hamza Sweid Inc. All rights reserved.
+        © 2020
+        <a class="my-website" href="https://hamza--sweid.000webhostapp.com/"
+          >Hamza Sweid</a
+        >
       </p>
     </div>
   </div>
@@ -48,5 +51,11 @@ export default {};
   color: #fff;
   font-weight: bold;
   font-size: 1em;
+}
+.my-website {
+  color: #486777;
+}
+.my-website:hover {
+  color: #7ebece;
 }
 </style>

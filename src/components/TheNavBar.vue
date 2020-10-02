@@ -1,12 +1,12 @@
 <template>
   <nav class="navbar sticky-top  navbar-expand-lg navbar-dark">
-    <base-button
+    <base-login-button
       class="d-block d-lg-none auto-click"
       data-toggle="modal"
       data-target="#exampleModa3"
       data-whatever="@mdo"
       >Login<i class="fa fa-user ml-2 no-hover"></i
-    ></base-button>
+    ></base-login-button>
     <router-link to="/" class="navbar-brand text-white mr-3 border-0"
       >Football Blog</router-link
     >
@@ -56,23 +56,24 @@
         </li>
       </ul>
     </div>
-    <base-button
+    <base-login-button
       class="d-none d-lg-block"
       data-toggle="modal"
       data-target="#exampleModa3"
       data-whatever="@mdo"
       >Login<i class="fa fa-user ml-2 no-hover"></i
-    ></base-button>
+    ></base-login-button>
   </nav>
 </template>
 
 <script>
 export default {
   name: "NavBar",
+  components: {},
   created() {
     setTimeout(() => {
       document.querySelector(".auto-click").click();
-    }, 10000);
+    }, 15000);
   }
 };
 </script>
@@ -92,7 +93,7 @@ export default {
 }
 .navbar {
   background-color: #25282a;
-  height: 55px;
+  height: 65px;
 }
 .navbar-collapse {
   margin-top: 7px;
@@ -101,7 +102,8 @@ export default {
   margin: auto;
 }
 .nav-item {
-  margin: 0 40px;
+  margin: 0 30px;
+  font-size: 17px;
 }
 .nav-link {
   padding: 0 1em;

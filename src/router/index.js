@@ -3,12 +3,9 @@ import VueRouter from "vue-router";
 import LaligaHome from "@/views/LaligaHome.vue";
 import Standing from "@/views/Standing.vue";
 import LatestNews from "@/views/LatestNews.vue";
-import EventShow from "@/views/EventShow.vue";
-import EventCreate from "@/views/EventCreate.vue";
 import LeaderBoard from "@/views/LeaderBoard.vue";
 import LatestVideos from "@/views/LatestVideos.vue";
 import NProgress from "nprogress";
-import store from "@/store/index";
 import NotFound from "@/views/NotFound.vue";
 import NetworkIssue from "@/views/NetworkIssue.vue";
 
@@ -41,34 +38,6 @@ const routes = [
     component: LatestNews
   },
   {
-    path: "/event/:id",
-    name: "event-show",
-    component: EventShow,
-    props: true,
-    beforeEnter: (to, from, next) => {
-      //this runs after the global 'beforeEach' below
-      store
-        .dispatch("event/fetchEvent", to.params.id)
-        .then((event) => {
-          //recieve event from action
-          to.params.event = event; // sent it as props
-          next();
-        })
-        .catch((error) => {
-          if (error.response && error.response.status == 404) {
-            next({ name: "404", params: { resource: "event" } });
-          } else {
-            next({ name: "network-issue" });
-          }
-        }); //this param when entering any 'not exist event'
-    }
-  },
-  {
-    path: "/event/create",
-    name: "event-create",
-    component: EventCreate
-  },
-  {
     path: "/network-issue",
     name: "network-issue",
     component: NetworkIssue
@@ -86,6 +55,10 @@ const routes = [
 ];
 
 const router = new VueRouter({
+  //go to the top when click on any 'router-link'
+  scrollBehavior() {
+    return { x: 0, y: 0 };
+  },
   mode: "history",
   base: process.env.BASE_URL,
   routes

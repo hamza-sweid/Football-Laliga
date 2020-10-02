@@ -6,7 +6,9 @@
     >
       <b>LaLiga Santander</b>
     </p>
-    <img src="../assets/images/laliga/video1.jpeg" alt="" />
+    <div class="news-img-container">
+      <img class="news-img" :src="getImgUrl()" alt="" />
+    </div>
     <div class="card-body">
       <p class=" text-muted bg-white">{{ item.date }}</p>
       <h5 class="Card title my-3">
@@ -36,6 +38,11 @@ export default {
       itemHeader: ["#FE2834", "#a23052", "#153680", "#022f3e"]
     };
   },
+  methods: {
+    getImgUrl() {
+      return require("@/assets/images/laliga/news/" + this.item.img);
+    }
+  },
   computed: {
     pickColor() {
       return Math.floor(Math.random() * this.itemHeader.length);
@@ -45,9 +52,18 @@ export default {
 </script>
 
 <style scoped>
-.item:hover {
-  transform: scale(1.01);
-  transition: 0s ease-in-out;
+.item {
+  cursor: pointer;
+}
+.news-img-container {
+  overflow: hidden;
+}
+.news-img {
+  transition: 0.3s ease-in-out;
+}
+.item:hover .news-img {
+  opacity: 0.8;
+  transform: scale(1.12);
 }
 .under-item {
   visibility: hidden;

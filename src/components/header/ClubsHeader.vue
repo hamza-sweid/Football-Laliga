@@ -54,6 +54,7 @@ export default {
 <style scoped>
 .navbar-clubs {
   display: flex;
+  justify-content: center;
 }
 .web-clubs {
   display: flex;

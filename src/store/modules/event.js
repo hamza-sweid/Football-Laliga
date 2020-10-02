@@ -9,8 +9,8 @@ export const state = {
   scorers: [],
   videos: [],
   news: [],
-  league: "liga",
-  isLoading: true
+  isLoading: true,
+  preLoader: "true"
 };
 
 export const mutations = {
@@ -33,6 +33,7 @@ export const actions = {
     return EventService.getStanding()
       .then((response) => {
         commit("SET_STANDING", response.data);
+        state.preLoader = false;
       })
       .catch(() => {
         const notification = {
